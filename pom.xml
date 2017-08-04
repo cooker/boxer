@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cooker.tool.utils</groupId>
+  <artifactId>boxer</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+  <name>boxer</name>
+  <url>http://maven.apache.org</url>
+  <developers>
+    <developer>
+      <name>cooker</name>
+    </developer>
+  </developers>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <junit.version>4.12</junit.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    <guava.version>21.0</guava.version>
+    <commons-io.version>2.5</commons-io.version>
+    <commons-lang3.version>3.5</commons-lang3.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
+    <jackson.version>2.8.8</jackson.version>
+  </properties>
+
+  <dependencies>
+    <!--单元测试-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!--基础工具包-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>${commons-collections.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <!--##############################################-->
+    <!--###################扩展依赖###################-->
+    <!--##############################################-->
+    <!--Jackson依赖-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+  </dependencies>
+</project>
