@@ -153,12 +153,4 @@ public class HttpUtils {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args) throws IOException {
-        Map<String, String> map = Maps.newHashMap();
-        map.put("u", "947037224");
-        map.put("p", "king123/*-");
-        System.out.println(doPostForm("https://ssl.ptlogin2.qq.com/login",
-                map));
-    }
 }
