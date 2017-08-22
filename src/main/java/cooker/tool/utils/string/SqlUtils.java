@@ -1,8 +1,6 @@
 package cooker.tool.utils.string;
 
-import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
-
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -42,6 +40,32 @@ public class SqlUtils {
         return sql.toString();
     }
 
+    public static String getUpdateById(List<String> columns, Class c){
+        StringJoiner jCols = new StringJoiner(",");
+        StringBuilder sql = new StringBuilder("UPDATE ");
+        sql.append(getSqlName(c.getSimpleName())).append(" SET ");
+        if(CollectionUtils.isNotEmpty(columns))
+            for (String col : columns){
+                jCols.add(getSqlName(col) + " = ?");
+            }
+        sql.append(jCols);
+        sql.append(" WHERE id = ?");
+        return sql.toString();
+    }
+
+    public static String getDeleteById(Class c){
+        StringBuilder sql = new StringBuilder("DELETE FROM ");
+        sql.append(getSqlName(c.getSimpleName()));
+        sql.append(" WHERE id = ?");
+        return sql.toString();
+    }
+
+    public static String getSelectTotal(Class c){
+        StringBuilder sql = new StringBuilder("SELECT count(1) FROM ");
+        sql.append(getSqlName(c.getSimpleName()));
+        return sql.toString();
+    }
+
 
     protected static String getSqlName(String str){
         StringBuilder name = new StringBuilder();
@@ -55,12 +79,6 @@ public class SqlUtils {
             }
         }
         return name.toString();
-    }
-
-    public static void main(String[] args) {
-        List<String> lists = Lists.newArrayList();
-        lists.add("x");
-        System.out.println(getInsertSql(lists, SqlUtils.class));
     }
 
 }
