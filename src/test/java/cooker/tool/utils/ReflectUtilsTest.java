@@ -20,7 +20,7 @@ public class ReflectUtilsTest {
         utils.inokeMethod(r,method);
     }
 
-    protected void print(){
+    protected void print(String x){
         System.out.println("---------------------------");
     }
 }
