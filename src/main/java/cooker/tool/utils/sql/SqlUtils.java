@@ -1,4 +1,4 @@
-package cooker.tool.utils.string;
+package cooker.tool.utils.sql;
 
 import org.apache.commons.collections.CollectionUtils;
 import java.util.List;

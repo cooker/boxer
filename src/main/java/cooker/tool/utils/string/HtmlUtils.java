@@ -65,4 +65,18 @@ public class HtmlUtils {
         }
         return str;
     }
+
+    public static String txt2Html(String txt){
+        StringBuilder html = new StringBuilder("<!DOCTYPE html>\r\n");
+        html.append("<html>");
+        html.append("<head>");
+        html.append("<meta charset=\"UTF-8\">");
+        html.append("</head>");
+        html.append("<body>");
+        html.append("<pre>").append(txt).append("</pre>");
+        html.append("</body>");
+        html.append("</html>");
+        return html.toString();
+    }
+
 }
