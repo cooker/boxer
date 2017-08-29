@@ -3,6 +3,8 @@ package cooker.tool.utils.http;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.StringJoiner;
+
 /**
  * Created by yu.kequn on 2017/8/10.
  */
@@ -30,8 +32,7 @@ public class HttpResponse {
 
     @Override
     public String toString() {
-        return "{\"state\":"+state+", \"msg\":\""
-               + msg + "\"}";
+        return String.format("{\"state\": \"%s\", \"msg\":\"%s\"}", state, msg);
     }
 
     public static boolean isStrictEqual(HttpResponse a, HttpResponse b){
