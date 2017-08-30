@@ -23,7 +23,7 @@ public class HttpHelper {
     /***私有区**/
     public String getResponseContent(CloseableHttpResponse httpResponse, String encoding) throws IOException {
         HttpEntity entity = httpResponse.getEntity();
-        String result = HttpResponse.FAIL.toString();
+        String result = HttpResponseMsg.FAIL.toString();
         if(Objects.nonNull(entity) && HttpStatus.SC_OK == httpResponse.getStatusLine().getStatusCode()){
             result = IOUtils.toString(entity.getContent(), encoding);
         }

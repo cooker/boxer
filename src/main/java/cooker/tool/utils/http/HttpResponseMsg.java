@@ -3,21 +3,19 @@ package cooker.tool.utils.http;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.StringJoiner;
-
 /**
  * Created by yu.kequn on 2017/8/10.
  */
-public class HttpResponse {
-    public static final HttpResponse SUCCESS = new HttpResponse(1, "success");
-    public static final HttpResponse FAIL = new HttpResponse(-1, "fail");
-    public static final HttpResponse IO_ERROR = new HttpResponse(-500, "Network IO Exception");
-    public static final HttpResponse TIME_OUT = new HttpResponse(-1000, "time out");
+public class HttpResponseMsg {
+    public static final HttpResponseMsg SUCCESS = new HttpResponseMsg(1, "success");
+    public static final HttpResponseMsg FAIL = new HttpResponseMsg(-1, "fail");
+    public static final HttpResponseMsg IO_ERROR = new HttpResponseMsg(-500, "Network IO Exception");
+    public static final HttpResponseMsg TIME_OUT = new HttpResponseMsg(-1000, "time out");
 
     int state;
     String msg;
 
-    private HttpResponse(int state, String msg){
+    private HttpResponseMsg(int state, String msg){
         this.state = state;
         this.msg = msg;
     }
@@ -35,7 +33,7 @@ public class HttpResponse {
         return String.format("{\"state\": \"%s\", \"msg\":\"%s\"}", state, msg);
     }
 
-    public static boolean isStrictEqual(HttpResponse a, HttpResponse b){
+    public static boolean isStrictEqual(HttpResponseMsg a, HttpResponseMsg b){
         boolean flag = false;
         flag = isEqual(a, b);
         if(flag == true){
@@ -47,7 +45,7 @@ public class HttpResponse {
         return false;
     }
 
-    public static boolean isEqual(HttpResponse a, HttpResponse b){
+    public static boolean isEqual(HttpResponseMsg a, HttpResponseMsg b){
         boolean flag = false;
         if(ObjectUtils.allNotNull(a, b)){
             if (a.getState() == b.getState())

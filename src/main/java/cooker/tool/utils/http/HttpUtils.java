@@ -41,7 +41,7 @@ public class HttpUtils {
 
     public static String doGet(String url, Map<String, String> params, String encoding)
             throws IOException {
-        String result = HttpResponse.FAIL.toString();
+        String result = HttpResponseMsg.FAIL.toString();
 
         try (CloseableHttpClient client = HttpClients.createDefault()){
 
@@ -69,7 +69,7 @@ public class HttpUtils {
     }
 
     public static String doPostFormData(String url, Map<String, ContentBody> params, String encoding) throws IOException {
-        String result = HttpResponse.FAIL.toString();
+        String result = HttpResponseMsg.FAIL.toString();
         String nurl = StringUtils.trimToNull(url);
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         if(MapUtils.isNotEmpty(params))
@@ -86,7 +86,7 @@ public class HttpUtils {
 
     public static String doPostForm(String url, Map<String, String> params, String encoding)
             throws IOException {
-        String result = HttpResponse.FAIL.toString();
+        String result = HttpResponseMsg.FAIL.toString();
         List<NameValuePair> nvs = Lists.newArrayList();
         String nurl = StringUtils.trimToNull(url);
         if(MapUtils.isNotEmpty(params))
@@ -103,7 +103,7 @@ public class HttpUtils {
     }
 
     public static String doPostJson(String url, Object object, String encoding) throws Exception {
-        String result = HttpResponse.FAIL.toString();
+        String result = HttpResponseMsg.FAIL.toString();
         String nurl = StringUtils.trimToNull(url);
         String sjson = JacksonUtils.toJSON(object);
         StringEntity sentity = new StringEntity(sjson, HTTP.UTF_8);
@@ -112,7 +112,7 @@ public class HttpUtils {
     }
 
     public static String doPostX(String url, HttpEntity entity, String encoding) throws IOException {
-        String result = HttpResponse.FAIL.toString();
+        String result = HttpResponseMsg.FAIL.toString();
         try (CloseableHttpClient client = HttpClients.createDefault()){
             HttpPost post = new HttpPost(url);
             post.setEntity(entity);
