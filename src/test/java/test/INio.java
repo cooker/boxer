@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public abstract class INio {
     public static final String HOST = "127.0.0.1";
-    public static int PORT = 7080;
+    public static int PORT = 8080;
 
     protected Selector selector;
     protected Scanner scanner = new Scanner(System.in);
