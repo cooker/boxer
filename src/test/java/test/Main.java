@@ -25,6 +25,7 @@ public class Main {
     public void server() throws Exception {
         NioServer server = new NioServer();
         server.init();
+        
         server.start();
     }
 
