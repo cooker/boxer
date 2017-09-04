@@ -1,6 +1,7 @@
 package cooker.tool.utils.weixin.sugar;
 
 import com.google.common.collect.Maps;
+import com.google.common.eventbus.Subscribe;
 import cooker.tool.utils.http.HttpUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import java.util.Map;
  */
 public class PostMsgUtils {
     public static final String url = "http://sc.ftqq.com/";
+    public static final String sub_url = "https://pushbear.ftqq.com/sub";
     public static final Logger logger = LoggerFactory.getLogger(PostMsgUtils.class);
     public static boolean doPost(PostMsg msg){
         boolean flag = false;
@@ -29,7 +31,20 @@ public class PostMsgUtils {
             }
         } catch (IOException e) {
             logger.error("微信消息推送失败", e);
-            return flag;
+        }
+        return flag;
+    }
+
+    public static boolean doPost(SubPostMsg msg){
+        boolean flag = false;
+        String sjson = "";
+        try {
+            sjson = HttpUtils.doPostJson(sub_url, msg);
+            if (StringUtils.contains(sjson,"\"code\": 0")){
+                flag = true;
+            }
+        } catch (Exception e) {
+            logger.error("微信消息Sub推送失败", e);
         }
         return flag;
     }

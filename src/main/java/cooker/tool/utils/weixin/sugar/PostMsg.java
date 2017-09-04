@@ -3,13 +3,9 @@ package cooker.tool.utils.weixin.sugar;
 /**
  * Created by yu.kequn on 2017/9/1.
  */
-public class PostMsg {
+public class PostMsg extends AbstractMsg{
     //Key
     private String sckey;
-    //消息标题，最长256
-    private String text;
-    //消息内容，最长64KB
-    private String desp;
 
     public PostMsg(){}
 
@@ -25,22 +21,6 @@ public class PostMsg {
 
     public void setSckey(String sckey) {
         this.sckey = sckey;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getDesp() {
-        return desp;
-    }
-
-    public void setDesp(String desp) {
-        this.desp = desp;
     }
 
 }
