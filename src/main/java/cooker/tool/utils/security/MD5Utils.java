@@ -1,8 +1,6 @@
 package cooker.tool.utils.security;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.collections.MapUtils;
-
 /**
  * Created by yu.kequn on 2017/8/28.
  */
