@@ -1,7 +1,6 @@
 package cooker.tool.utils.weixin.sugar;
 
 import com.google.common.collect.Maps;
-import com.google.common.eventbus.Subscribe;
 import cooker.tool.utils.http.HttpUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

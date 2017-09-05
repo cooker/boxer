@@ -1,7 +1,5 @@
 package cooker.tool.utils.weixin.sugar;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.StringJoiner;
 
 /**
