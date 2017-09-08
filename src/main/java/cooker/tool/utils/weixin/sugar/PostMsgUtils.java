@@ -2,7 +2,9 @@ package cooker.tool.utils.weixin.sugar;
 
 import com.google.common.collect.Maps;
 import cooker.tool.utils.http.HttpUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.translate.UnicodeUnescaper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +27,7 @@ public class PostMsgUtils {
         params.put("desp", msg.getDesp());
         try {
             sjson = HttpUtils.doPostForm(furl, params);
+            sjson = StringEscapeUtils.unescapeJson(sjson);
             if (StringUtils.contains(sjson,"\"errno\":0")){
                 flag = true;
             }
@@ -39,6 +42,7 @@ public class PostMsgUtils {
         String sjson = "";
         try {
             sjson = HttpUtils.doPostJson(sub_url, msg);
+            sjson = StringEscapeUtils.unescapeJson(sjson);
             if (StringUtils.contains(sjson,"\"code\": 0")){
                 flag = true;
             }
